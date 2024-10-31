@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { searchCocktails } from "../../utils/fetchCocktails";
 
-export default function Search({ onSearch, setLoading }) {
+export default function Search({ onSearch, setLoading, setNoResult }) {
   const [query, setQuery] = useState("");
 
   const handleSearch = async () => {
@@ -14,12 +14,20 @@ export default function Search({ onSearch, setLoading }) {
     const drinks = await searchCocktails(query);
     onSearch(drinks);
     setLoading(false);
+    setNoResult(true);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
   };
 
   return (
     <div className="my-10 flex items-center justify-center">
       <input
         type="text"
+        onKeyDown={handleKeyDown}
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search for a cocktail"

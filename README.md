@@ -28,8 +28,6 @@ Additionally, I utilized the Context API to manage the state of favorite cocktai
 
 Tests files are added in the `src\tests` path. Comments are added for more clarification.
 
-## Deploy on Vercel
+## Deployed on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is deployed on Vercel. You can check it out [https://cocktail-app-green.vercel.app/]

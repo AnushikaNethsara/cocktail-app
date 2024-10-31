@@ -8,6 +8,7 @@ import LoadingSkeletons from "@/components/molecules/LoadingSkeletons";
 export default function SearchPage() {
   const [cocktails, setCocktails] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [noResult, setNoResult] = useState(false);
   const { addToFavourites } = useFavorites();
 
   return (
@@ -26,11 +27,18 @@ export default function SearchPage() {
           </p>
         </div>
       </div>
-
       <div className="p-4 flex flex-col justify-center items-center">
-        <Search onSearch={setCocktails} setLoading={setLoading} />{" "}
+        <Search
+          onSearch={setCocktails}
+          setLoading={setLoading}
+          setNoResult={setNoResult}
+        />{" "}
         {loading ? (
           <LoadingSkeletons numberofCards={6} />
+        ) : cocktails.length === 0 && noResult ? (
+          <p className="text-gray-500 text-center mt-4">
+            Oops! No cocktails matched your search. Try a different name
+          </p>
         ) : (
           <CocktailList cocktails={cocktails} onAdd={addToFavourites} />
         )}

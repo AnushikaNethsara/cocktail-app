@@ -31,7 +31,7 @@ export default function Favorites() {
             />
           </div>
         ) : (
-          <p className=" text-center mt-20 mb-[50vh]">
+          <p className="text-gray-500 text-center mt-4">
             No favourites added yet.
           </p>
         )}
